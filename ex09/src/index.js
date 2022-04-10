@@ -1,32 +1,29 @@
-function myMutation(arr){
-    var kraci;
-    var duzi;
-    if(arr[0].length <= arr[1].length){
-        kraci = arr[0];
-        duzi = arr[1];
-    } else {
-        kraci = arr[1];
-        duzi = arr[0];
-    }
-    var tacno = false;
-    var brojac = 0;
-    for(var i=0;i<kraci.length;i++){
-        for(var j=0;j<duzi.length;j++){
-            if(kraci[i] == duzi[j]){
-                tacno = true;
-                brojac++;
+
+function myMutation(arr) {
+    for (var i = 0; i < arr[1].length; i++) {
+        var inFirst = false;
+        for (var j = 0; j < arr[0].length; j++) {
+            if (arr[0][j].toLowerCase() == arr[1][i].toLowerCase()) {
+                inFirst = true;
                 break;
             }
         }
+        if (!inFirst) return false;   
     }
-    if(brojac == kraci.length && tacno == true){
-        return true;
-    } else{
-        return false;
-    }
+    return true;
 }
 
-
+console.log(myMutation(["hello", "hey"]));
 console.log(myMutation(["hello", "Hello"]));
+console.log(myMutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]));
+console.log(myMutation(["Mary", "Army"]));
+console.log(myMutation(["Mary", "Aarmy"]));
+console.log(myMutation(["Alien", "line"]));
+console.log(myMutation(["floor", "for"]));
+console.log(myMutation(["hello", "neo"]));
+console.log(myMutation(["voodoo", "no"]));
+console.log(myMutation(["ate", "date"]));
+console.log(myMutation(["Tiger", "Zebra"]));
+console.log(myMutation(["Noel", "Ole"]));
 
 module.exports = myMutation;

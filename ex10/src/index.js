@@ -1,11 +1,7 @@
-function myBouncer(arr){
-    var nova = [];
-    for(var i=0;i<arr.length;i++){
-        if(arr[i] != "" && arr[i] != false && arr[i] != 0 && arr[i] != null &&  arr[i] != NaN && arr[i] != undefined ){
-            nova.push(arr[i]);
-        }
-    }
-    return nova;
+function myBouncer(array){
+    return array.filter(function(value){
+        return !!value;
+    });;
 }
 
 console.log(myBouncer([7, "ate", "", false, 9]));
